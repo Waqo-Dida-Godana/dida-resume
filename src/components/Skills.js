@@ -1,16 +1,20 @@
 import React, { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Skills() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+
     const progressBars = sectionRef.current.querySelectorAll(".progress-bar");
-    const values = sectionRef.current.querySelectorAll(".val");
+    const percentages = sectionRef.current.querySelectorAll(".skill-percentage");
 
     const animateCounter = (el, target) => {
       let start = 0;
-      const duration = 1500; // 1.5s
+      const duration = 1500;
       const increment = target / (duration / 30);
 
       const counter = setInterval(() => {
@@ -28,18 +32,14 @@ function Skills() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             progressBars.forEach((bar, index) => {
-              const targetWidth = bar.getAttribute("data-width");
-              bar.style.width = targetWidth;
-
-              // Animate numbers
-              const targetValue = parseInt(targetWidth);
-              animateCounter(values[index], targetValue);
+              const value = bar.getAttribute("aria-valuenow");
+              bar.style.width = `${value}%`;
+              animateCounter(percentages[index], parseInt(value));
             });
           } else {
-            // 🔄 Reset when out of view
             progressBars.forEach((bar, index) => {
               bar.style.width = "0%";
-              values[index].textContent = "0%";
+              percentages[index].textContent = "0%";
             });
           }
         });
@@ -47,138 +47,84 @@ function Skills() {
       { threshold: 0.3 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
 
   return (
-    <section id="skills" className="skills section-bg" ref={sectionRef}>
+    <section id="skills" className="skills section" ref={sectionRef}>
       <Helmet>
         <title>Skills - Wako Dida Godana</title>
-        <meta
-          name="description"
-          content="Explore the technical skills of Wako Dida Godana, including HTML, CSS, JavaScript, React, Node.js, and Graphic Design expertise."
-        />
       </Helmet>
 
-      {/* ✅ Styles */}
-      <style>{`
-        .skills {
-          padding: 60px 0;
-          overflow: hidden;
-        }
-        .skills .section-title h2 {
-          font-size: 28px;
-          font-weight: 700;
-          margin-bottom: 20px;
-          color: #173b6c;
-          text-transform: uppercase;
-        }
-        .skills .section-title p {
-          margin-bottom: 40px;
-          font-size: 16px;
-          color: #444;
-        }
-        .skills .progress {
-          height: 60px;
-          background: none;
-          margin-bottom: 30px;
-        }
-        .skills .progress .skill {
-          padding: 10px 0;
-          text-transform: uppercase;
-          font-weight: 600;
-          font-family: "Poppins", sans-serif;
-          color: #050d18;
-        }
-        .skills .progress .skill .val {
-          float: right;
-        }
-        .skills .progress-bar-wrap {
-          background: #dce8f8;
-          height: 10px;
-          border-radius: 5px;
-          overflow: hidden;
-        }
-        .skills .progress-bar {
-          height: 10px;
-          width: 0; /* start hidden */
-          transition: width 1.5s ease-in-out;
-          background-color: #149ddd;
-        }
-        .section-bg {
-          background: #f5f8fd;
-        }
-      `}</style>
+      <div className="container section-title" data-aos="fade-up">
+        <h2>Skills</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div>
 
-      <div className="container">
-        <div className="section-title">
-          <h2>My Skills</h2>
-          <p>Here are my main technical skills and expertise areas.</p>
-        </div>
-
-        <div className="row skills-content">
-          <div className="col-lg-6" data-aos="fade-up">
-            <div className="progress">
-              <span className="skill">
-                HTML <i className="val">0%</i>
-              </span>
-              <div className="progress-bar-wrap">
-                <div className="progress-bar" data-width="100%"></div>
-              </div>
-            </div>
-
-            <div className="progress">
-              <span className="skill">
-                CSS <i className="val">0%</i>
-              </span>
-              <div className="progress-bar-wrap">
-                <div className="progress-bar" data-width="90%"></div>
-              </div>
-            </div>
-
-            <div className="progress">
-              <span className="skill">
-                JavaScript <i className="val">0%</i>
-              </span>
-              <div className="progress-bar-wrap">
-                <div className="progress-bar" data-width="85%"></div>
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div className="row">
+          {/* Frontend Column */}
+          <div className="col-lg-6">
+            <div className="skills-category" data-aos="fade-up" data-aos-delay="200">
+              <h3>Front-end Development</h3>
+              <div className="skills-animation">
+                {[
+                  { name: "HTML/CSS", value: 95, tooltip: "Expert level knowledge of semantic HTML5 and modern CSS3 techniques" },
+                  { name: "JavaScript", value: 85, tooltip: "Strong proficiency in ES6+, DOM manipulation, and modern frameworks" },
+                  { name: "React", value: 80, tooltip: "Experience with React hooks, state management, and component architecture" },
+                ].map((skill, idx) => (
+                  <div className="skill-item" key={idx}>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <h4>{skill.name}</h4>
+                      <span className="skill-percentage">0%</span>
+                    </div>
+                    <div className="progress">
+                      <div
+                        className="progress-bar"
+                        role="progressbar"
+                        aria-valuenow={skill.value}
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    <div className="skill-tooltip">{skill.tooltip}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div className="progress">
-              <span className="skill">
-                React <i className="val">0%</i>
-              </span>
-              <div className="progress-bar-wrap">
-                <div className="progress-bar" data-width="80%"></div>
-              </div>
-            </div>
-
-            <div className="progress">
-              <span className="skill">
-                Node.js <i className="val">0%</i>
-              </span>
-              <div className="progress-bar-wrap">
-                <div className="progress-bar" data-width="75%"></div>
-              </div>
-            </div>
-
-            <div className="progress">
-              <span className="skill">
-                Graphic Design <i className="val">0%</i>
-              </span>
-              <div className="progress-bar-wrap">
-                <div className="progress-bar" data-width="90%"></div>
+          {/* Backend Column */}
+          <div className="col-lg-6">
+            <div className="skills-category" data-aos="fade-up" data-aos-delay="300">
+              <h3>Back-end Development</h3>
+              <div className="skills-animation">
+                {[
+                  { name: "Node.js", value: 75, tooltip: "Server-side JavaScript development with Express and REST APIs" },
+                  { name: "Python", value: 70, tooltip: "Python development with Django and data analysis tools" },
+                  { name: "SQL", value: 65, tooltip: "Database design, optimization, and complex queries" },
+                ].map((skill, idx) => (
+                  <div className="skill-item" key={idx}>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <h4>{skill.name}</h4>
+                      <span className="skill-percentage">0%</span>
+                    </div>
+                    <div className="progress">
+                      <div
+                        className="progress-bar"
+                        role="progressbar"
+                        aria-valuenow={skill.value}
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    <div className="skill-tooltip">{skill.tooltip}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

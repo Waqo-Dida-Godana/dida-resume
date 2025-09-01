@@ -38,12 +38,14 @@ function Contact() {
       </Helmet>
 
       <div className="container">
+        {/* Section Title */}
         <div className="section-title">
           <h2>Contact</h2>
           <p>Get in touch with me for collaborations or freelance work.</p>
         </div>
 
         <div className="row" data-aos="fade-in">
+          {/* Contact Info */}
           <div className="col-lg-5 d-flex align-items-stretch">
             <div className="info">
               <div className="address">
@@ -66,6 +68,7 @@ function Contact() {
             </div>
           </div>
 
+          {/* Contact Form */}
           <div className="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <form className="php-email-form">
               <div className="row">
@@ -84,11 +87,7 @@ function Contact() {
               </div>
               <div className="form-group">
                 <label>Message</label>
-                <textarea
-                  name="message"
-                  rows="6"
-                  className="form-control"
-                ></textarea>
+                <textarea name="message" rows="6" className="form-control"></textarea>
               </div>
               <div className="text-center">
                 <button type="submit">Send Message</button>
