@@ -1,93 +1,158 @@
 // src/components/Portfolio.js
-import React from "react";
+import React, { useState } from "react";
+import Modal from "react-modal";
+
+// Local images
+import calculatorImg from "../assets/img/portfolio/calculator.png";
+import loginFormImg from "../assets/img/portfolio/login-form.png";
+import numberGuessImg from "../assets/img/portfolio/number-guessing.png";
+import resumeImg from "../assets/img/portfolio/resume.png";
+import weatherAppImg from "../assets/img/portfolio/weather-app.png";
+
+Modal.setAppElement("#root");
+
+const categories = [
+  { label: "All Projects", key: "all" },
+  { label: "UI/UX DESIGN", key: "ui-ux-design" },
+  { label: "WEB DEVELOPMENT", key: "web-development" },
+  { label: "GRAPHIC DESIGN", key: "graphic-design" },
+  { label: "CYBER SERVICES", key: "cyber-services" },
+  { label: "WEB APP DEVELOPMENT", key: "web-app-development" },
+];
 
 const portfolioItems = [
   {
-    title: "Maganatti Calendar",
-    category: "Web Design",
-    image: "../assets/img/profile-img.png",
-    demoLink: "https://github.com/Waqo-Dida-Godana/maganatti-calendar",
-    detailsLink: "https://github.com/Waqo-Dida-Godana/maganatti-calendar",
+    title: "Maganatti Calculator",
+    category: "WEB DEVELOPMENT",
+    filterKey: "web-development",
+    image: calculatorImg,
   },
   {
-    title: "Maganatti Quiz App",
-    category: "Design",
-    image: "../assets/img/profile-img.png",
-    demoLink: "https://github.com/Waqo-Dida-Godana/maganatti-quiz-app",
-    detailsLink: "https://github.com/Waqo-Dida-Godana/maganatti-quiz-app",
+    title: "Login Form",
+    category: "UI/UX DESIGN",
+    filterKey: "ui-ux-design",
+    image: loginFormImg,
   },
   {
-    title: "Login Page",
-    category: "Photography",
-    image: "../assets/img/profile-img.png",
-    demoLink: "https://github.com/Waqo-Dida-Godana/Login-page-using-HTML-5-CSS-3-only",
-    detailsLink: "https://github.com/Waqo-Dida-Godana/Login-page-using-HTML-5-CSS-3-only",
+    title: "Number Guessing Game",
+    category: "GRAPHIC DESIGN",
+    filterKey: "graphic-design",
+    image: numberGuessImg,
   },
   {
-    title: "Simple Digital Clock",
-    category: "Automotive",
-    image: "../assets/img/profile-img.png",
-    demoLink: "https://github.com/Waqo-Dida-Godana/Simple-digital-clock-system-using-hmtl5-css3-javascript",
-    detailsLink: "https://github.com/Waqo-Dida-Godana/Simple-digital-clock-system-using-hmtl5-css3-javascript",
+    title: "Resume Project",
+    category: "CYBER SERVICES",
+    filterKey: "cyber-services",
+    image: resumeImg,
+  },
+  {
+    title: "Weather App",
+    category: "WEB APP DEVELOPMENT",
+    filterKey: "web-app-development",
+    image: weatherAppImg,
   },
 ];
 
 const Portfolio = () => {
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalImage, setModalImage] = useState("");
+
+  const openModal = (image) => {
+    setModalImage(image);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+    setModalImage("");
+  };
+
+  const filteredItems =
+    activeCategory === "all"
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.filterKey === activeCategory);
+
   return (
     <section id="portfolio" className="portfolio section">
       <div className="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
         <p>
-          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+         Explore a curated collection of my projects, showcasing creativity, technical expertise, and a commitment to crafting intuitive and visually engaging digital experiences.
         </p>
       </div>
 
       <div className="container" data-aos="fade-up" data-aos-delay="100">
-        <div className="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <div className="row">
-            <div className="col-lg-3 filter-sidebar">
-              <div className="filters-wrapper" data-aos="fade-right" data-aos-delay="150">
-                <ul className="portfolio-filters isotope-filters">
-                  <li data-filter="*" className="filter-active">All Projects</li>
-                  <li data-filter=".filter-photography">Photography</li>
-                  <li data-filter=".filter-design">Design</li>
-                  <li data-filter=".filter-automotive">Automotive</li>
-                  <li data-filter=".filter-nature">Nature</li>
-                </ul>
-              </div>
-            </div>
+        <div className="row">
+          {/* Sidebar Filters */}
+          <div className="col-lg-3 filter-sidebar">
+            <ul className="portfolio-filters isotope-filters">
+              {categories.map((cat, idx) => (
+                <li
+                  key={idx}
+                  className={activeCategory === cat.key ? "filter-active" : ""}
+                  onClick={() => setActiveCategory(cat.key)}
+                >
+                  {cat.label}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="col-lg-9">
-              <div className="row gy-4 portfolio-container isotope-container" data-aos="fade-up" data-aos-delay="200">
-                {portfolioItems.map((item, index) => (
-                  <div
-                    key={index}
-                    className={`col-lg-6 col-md-6 portfolio-item isotope-item filter-${item.category.toLowerCase()}`}
-                  >
-                    <div className="portfolio-wrap">
-                      <img src={item.image} className="img-fluid" alt={item.title} loading="lazy" />
-                      <div className="portfolio-info">
-                        <div className="content">
-                          <span className="category">{item.category}</span>
-                          <h4>{item.title}</h4>
-                          <div className="portfolio-links">
-                            <a href={item.demoLink} className="glightbox" target="_blank" rel="noopener noreferrer" title={item.title}>
-                              <i className="bi bi-plus-lg"></i>
-                            </a>
-                            <a href={item.detailsLink} target="_blank" rel="noopener noreferrer" title="More Details">
-                              <i className="bi bi-arrow-right"></i>
-                            </a>
-                          </div>
-                        </div>
+          {/* Portfolio Items */}
+          <div className="col-lg-9">
+            <div className="row gy-4 portfolio-container">
+              {filteredItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="col-lg-6 col-md-6 portfolio-item"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => openModal(item.image)}
+                >
+                  <div className="portfolio-wrap">
+                    <img
+                      src={item.image}
+                      className="img-fluid"
+                      alt={item.title}
+                      loading="lazy"
+                    />
+                    <div className="portfolio-info">
+                      <div className="content">
+                        <span className="category">{item.category}</span>
+                        <h4>{item.title}</h4>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Modal Popup */}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Portfolio Image"
+        style={{
+          content: {
+            maxWidth: "800px",
+            margin: "auto",
+            height: "auto",
+            borderRadius: "10px",
+            padding: "0",
+            border: "none",
+            overflow: "hidden",
+          },
+          overlay: {
+            backgroundColor: "rgba(0,0,0,0.75)",
+            zIndex: 1000,
+          },
+        }}
+      >
+        <img src={modalImage} alt="Portfolio Item" className="img-fluid" />
+      </Modal>
     </section>
   );
 };

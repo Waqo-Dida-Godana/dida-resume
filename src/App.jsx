@@ -1,6 +1,6 @@
 // src/App.js
 import React from "react";
-import { Helmet } from "react-helmet-async"; // ✅ Use async version
+import { Helmet } from "react-helmet-async"; 
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -9,7 +9,8 @@ import Resume from "./components/Resume";
 import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
-import "./assets/css/main.css"; // Global styles
+import Footer from "./components/Footer"; 
+import "./assets/css/main.css"; 
 
 function App() {
   return (
@@ -23,11 +24,11 @@ function App() {
         />
       </Helmet>
 
-      {/* Sidebar + Footer */}
+      {/* Sidebar / Header */}
       <Header />
 
-      {/* Main page content */}
-      <main id="main">
+      {/* Main content */}
+      <main className="main">
         <Hero />
         <About />
         <Resume />
@@ -36,6 +37,9 @@ function App() {
         <Portfolio />
         <Contact />
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

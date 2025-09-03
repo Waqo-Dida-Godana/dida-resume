@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import { Helmet } from "react-helmet-async";
-import heroProfile from "../assets/img/profile-img.png"; // ✅ Import the image
 
 function Hero() {
   const typedEl = useRef(null);
@@ -14,7 +13,7 @@ function Hero() {
         "Full Stack Developer 💻",
         "Freelancer 🌍",
         "Graphic Designer 🎨",
-        "Website Designer 🌐",
+        "Website Developer 🌐",
         "Tech Enthusiast 🚀",
       ],
       typeSpeed: 70,
@@ -45,19 +44,21 @@ function Hero() {
           <div className="container">
             <div className="row align-items-center">
               {/* Hero Text */}
-              <div className="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+              <div className="col-lg-12" data-aos="fade-right" data-aos-delay="100">
                 <div className="hero-text">
                   <h1>
                     Wako <span className="accent-text">Dida</span>
                   </h1>
-                  <h2>Wako Dida Godana</h2>
+                  <h2>Full Stack Developer | Freelancer | Graphic Designer | Website Developer</h2>
                   <p className="lead">
-                    I'm a <span ref={typedEl} className="typed"></span>
+                    Crafting innovative solutions as a <span ref={typedEl} className="typed"></span>
                   </p>
                   <p className="description">
-                    Passionate about creating exceptional digital experiences that
-                    blend innovative design with functional development. Let's bring
-                    your vision to life.
+                    I create visually appealing and highly functional digital experiences. Combining creativity with technology, I help businesses shine online and achieve their goals.
+                  </p>
+
+                  <p className="description">
+                    Passionate about creating exceptional digital experiences that blend innovative design with functional development. Let's bring your vision to life.
                   </p>
 
                   <div className="hero-actions">
@@ -66,24 +67,24 @@ function Hero() {
                   </div>
 
                   <div className="social-links">
-                    <a href="#"><i className="bi bi-dribbble"></i></a>
-                    <a href="#"><i className="bi bi-behance"></i></a>
-                    <a href="#"><i className="bi bi-github"></i></a>
-                    <a href="#"><i className="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Hero Image */}
-              <div className="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                <div className="hero-visual">
-                  <div className="profile-container">
-                    <div className="profile-background"></div>
-                    <img
-                      src={heroProfile}
-                      alt="Wako Dida Godana"
-                      className="profile-image"
-                    />
+                    <a href="https://github.com/Waqo-Dida-Godana/Waqo-Dida-Godana" target="_blank" rel="noopener noreferrer">
+                      <i className="bi bi-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/wako-dida-godana/" target="_blank" rel="noopener noreferrer">
+                      <i className="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://www.facebook.com/wako.dida.godana" target="_blank" rel="noopener noreferrer">
+                      <i className="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/wako_dida" target="_blank" rel="noopener noreferrer">
+                      <i className="bi bi-twitter"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@wako.godana1" target="_blank" rel="noopener noreferrer">
+                      <i className="bi bi-tiktok"></i>
+                    </a>
+                    <a href="https://www.instagram.com/wako_dida/" target="_blank" rel="noopener noreferrer">
+                      <i className="bi bi-instagram"></i>
+                    </a>
                   </div>
                 </div>
               </div>
