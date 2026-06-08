@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, User, FileText, Briefcase, Mail, Menu, X, Layers, Sun, Moon } from "lucide-react";
+import { Home, User, FileText, Briefcase, Mail, Menu, X, Layers, Sun, Moon, MapPin, CheckCircle } from "lucide-react";
 import { useTheme } from "next-themes";
 import logoImg from "@/assets/logo.png";
 
@@ -38,8 +38,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
       <nav className="hidden lg:flex fixed left-0 top-0 bottom-0 w-[280px] z-50">
         <div className="w-full h-full bg-sidebar flex flex-col items-center py-8 px-6">
           {/* Profile Section */}
-          <div className="text-center mb-8">
-            <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden border-4 border-sidebar-accent">
+          <div className="text-left mb-8">
+            <div className="w-32 h-32 mb-4 rounded-lg overflow-hidden border-4 border-sidebar-accent">
               <img
                 src={logoImg}
                 alt="Logo"
@@ -49,6 +49,18 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
             <h2 className="text-xl font-bold text-sidebar-foreground font-heading">
               Wako Dida Godana
             </h2>
+            <p className="text-accent font-medium text-sm mt-1">
+              <span className="text-info">TVET ICT Trainer &</span>{' '}
+              <span className="text-gradient">Full-stack Developer</span>
+            </p>
+            <div className="flex items-center gap-2 text-info mt-2">
+              <MapPin className="w-3 h-3" />
+              <span className="text-xs">Marsabit, Kenya</span>
+            </div>
+            <div className="inline-flex items-center gap-2 text-accent text-xs font-medium mt-2">
+              <CheckCircle className="w-3 h-3" />
+              Available for projects
+            </div>
           </div>
 
           {/* Social Links */}
@@ -132,8 +144,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
             <div className="fixed inset-y-0 left-0 w-[280px] bg-sidebar z-50 animate-slide-in-left">
               <div className="flex flex-col h-full p-6">
                 {/* Profile */}
-                <div className="text-center mb-6">
-                  <div className="w-24 h-24 mx-auto mb-3 rounded-lg overflow-hidden border-4 border-sidebar-accent">
+                <div className="text-left mb-6">
+                  <div className="w-24 h-24 mb-3 rounded-lg overflow-hidden border-4 border-sidebar-accent">
                     <img
                       src={logoImg}
                       alt="Logo"
@@ -143,6 +155,18 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
                   <h2 className="text-lg font-bold text-sidebar-foreground">
                     Wako Dida Godana
                   </h2>
+                  <p className="text-accent font-medium text-xs mt-1">
+                    <span className="text-info">TVET ICT Trainer &</span>{' '}
+                    <span className="text-gradient">Full-stack Developer</span>
+                  </p>
+                  <div className="flex items-center gap-2 text-info mt-2">
+                    <MapPin className="w-3 h-3" />
+                    <span className="text-xs">Marsabit, Kenya</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 text-accent text-xs font-medium mt-2">
+                    <CheckCircle className="w-3 h-3" />
+                    Available for projects
+                  </div>
                 </div>
 
                 {/* Social Links */}

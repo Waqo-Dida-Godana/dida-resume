@@ -1,41 +1,20 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Button } from "./ui/button";
-import { Download, MessageCircle, MapPin, CheckCircle, Smile, FileText, Headphones, Users, Sparkles, Mail, Phone, Globe, Briefcase } from "lucide-react";
+import { Download, MessageCircle, MapPin, CheckCircle, Mail, Phone, Globe, Briefcase, Code2, Palette, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import profileImg from "../assets/profile.jpg";
-
-interface StatItemProps {
-  icon: React.ReactNode;
-  number: string;
-  label: string;
-}
-
-const StatItem: React.FC<StatItemProps> = ({ icon, number, label }) => {
-  return (
-    <div className="bg-card rounded-2xl p-6 text-center hover-lift border border-border/50">
-      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-        {icon}
-      </div>
-      <span className="block text-4xl font-bold text-foreground mb-1 font-heading">
-        {number}
-      </span>
-      <p className="text-sm text-muted-foreground font-medium">
-        {label}
-      </p>
-    </div>
-  );
-};
 
 interface SkillCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+  iconBg?: string;
+  iconText?: string;
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ icon, title, description }) => (
+const SkillCard: React.FC<SkillCardProps> = ({ icon, title, description, iconBg = "bg-accent/10", iconText = "text-accent" }) => (
   <div className="flex items-start gap-4">
-    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
+    <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${iconBg} ${iconText}`}>
       {icon}
     </div>
     <div>
@@ -52,7 +31,7 @@ function About() {
         <title>About - Wako Dida Godana</title>
         <meta
           name="description"
-          content="Wako Dida Godana - TVET ICT Trainer, Full-stack Developer, and IT Consultant based in Marsabit, Kenya. BSc IT from Mount Kenya University. TVET licensed trainer, Cisco certified."
+          content="Wako Dida Godana - TVET ICT Trainer, Full-stack Developer and IT Consultant based in Marsabit, Kenya. BSc IT from Mount Kenya University. TVET licensed trainer, Cisco certified."
         />
       </Helmet>
 
@@ -100,16 +79,17 @@ function About() {
                       Wako Dida Godana
                     </h3>
                     <p className="text-accent font-medium mb-4">
-                      TVET ICT Trainer & Full-stack Developer
+                      <span className="text-info">TVET ICT Trainer &</span>{' '}
+                      <span className="text-gradient">Full-stack Developer</span>
                     </p>
 
-                    <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground mb-4">
+                    <div className="flex items-center justify-center md:justify-start gap-2 text-info mb-4">
                       <MapPin className="w-4 h-4" />
                       <span>Marsabit, Kenya</span>
                     </div>
 
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 rounded-full text-success text-sm font-medium">
-                      <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                    <div className="inline-flex items-center gap-2 text-accent text-sm font-medium">
+                      <CheckCircle className="w-4 h-4" />
                       Available for projects
                     </div>
                   </div>
@@ -129,63 +109,49 @@ function About() {
                 {/* Skills Summary */}
                 <div className="mt-8 space-y-4">
                   <SkillCard
-                    icon={<Sparkles className="w-5 h-5" />}
+                    icon={<Code2 className="w-5 h-5" />}
                     title="Full Stack Development"
                     description="React, Node.js, MySQL, Web Services, CMS"
+                    iconBg="bg-blue-500/10"
+                    iconText="text-blue-600"
                   />
                   <SkillCard
-                    icon={<Sparkles className="w-5 h-5" />}
+                    icon={<Palette className="w-5 h-5" />}
                     title="UI/UX & Graphic Design"
                     description="User interfaces, brand identity, visual design"
+                    iconBg="bg-purple-500/10"
+                    iconText="text-purple-600"
                   />
                   <SkillCard
-                    icon={<Sparkles className="w-5 h-5" />}
+                    icon={<GraduationCap className="w-5 h-5" />}
                     title="IT Training & Consultancy"
                     description="TVETA Licensed trainer, technical support"
+                    iconBg="bg-red-500/10"
+                    iconText="text-red-600"
                   />
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                  <Button
-                    asChild
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground flex-1"
+                <div className="mt-8 flex flex-col sm:flex-row gap-2">
+                  <a
+                    href="https://gitconnected.com/waqo-dida-godana/resume"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded bg-red-500 hover:bg-red-600 text-white text-xs font-medium transition-colors no-underline inline-flex items-center gap-2"
                   >
-                    <a
-                      href="https://gitconnected.com/waqo-dida-godana/resume"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      Download Resume
-                    </a>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="border-border hover:bg-muted flex-1"
-                    onClick={() => {
-                      const element = document.getElementById('contact');
-                      if (element) {
-                        element.scrollIntoView({
-                          behavior: 'smooth',
-                          block: 'start'
-                        });
-                      }
-                    }}
+                    <Download className="w-3 h-3" />
+                    Download Resume
+                  </a>
+                  <a
+                    href="#contact"
+                    className="px-3 py-1.5 rounded bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-medium transition-colors no-underline inline-flex items-center gap-2"
                   >
-                    <MessageCircle className="w-4 h-4 mr-2" />
+                    <MessageCircle className="w-3 h-3" />
                     Let's Talk
-                  </Button>
+                  </a>
                 </div>
               </div>
 
-              {/* Quote Card */}
-              <div className="mt-6 bg-sidebar rounded-2xl p-6 text-sidebar-foreground">
-                <blockquote className="italic text-sidebar-foreground/80">
-                  "Good design is not about perfection—it's about understanding, empathy,
-                  and continuous learning from the people who use what we create."
-                </blockquote>
-              </div>
             </motion.div>
 
             {/* Right Column: About Content */}
@@ -200,7 +166,7 @@ function About() {
                   About Me
                 </span>
                 <h2 className="text-3xl lg:text-4xl font-bold leading-tight text-foreground font-heading mb-4">
-                  A unique blend of education and IT
+                  A unique blend of <span className="text-info">education</span> & <span className="text-gradient">IT</span>
                 </h2>
               </div>
 
@@ -271,39 +237,17 @@ function About() {
                     Contact Me
                   </a>
                 </div>
+
+                {/* Quote Card */}
+                <div className="mt-6 bg-sidebar rounded-2xl p-6 text-sidebar-foreground">
+                  <blockquote className="italic text-sidebar-foreground/80">
+                    "Good design is not about perfection - it's about understanding, empathy,
+                    and continuous learning from the people who use what we create."
+                  </blockquote>
+                </div>
               </div>
             </motion.div>
           </div>
-
-          {/* Stats Section */}
-          <motion.div
-            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <StatItem
-              icon={<Smile className="w-7 h-7" />}
-              number="232"
-              label="Happy Clients"
-            />
-            <StatItem
-              icon={<FileText className="w-7 h-7" />}
-              number="521"
-              label="Projects"
-            />
-            <StatItem
-              icon={<Headphones className="w-7 h-7" />}
-              number="1463"
-              label="Hours Of Support"
-            />
-            <StatItem
-              icon={<Users className="w-7 h-7" />}
-              number="15"
-              label="Team Members"
-            />
-          </motion.div>
         </div>
       </motion.section>
     </>
@@ -311,3 +255,4 @@ function About() {
 }
 
 export default About;
+
