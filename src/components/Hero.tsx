@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Palette, Code, Camera } from "lucide-react";
 import { motion } from "framer-motion";
-import profileImg from "@/assets/WAQO-300x300.png";
+import profileImg from "@/assets/profile.jpg";
 
 const Hero: React.FC = () => {
   const roles = [
-    "Full Stack Developer",
-    "Web Designer",
-    "Freelancer",
-    "Graphic Designer",
-    "IT Trainer"
+    "TVET Trainer",
+    "Curriculum Designer",
+    "ICT Instructor",
+    "Full-stack Developer",
+    "Web Developer"
   ];
 
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -78,9 +78,9 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <span className="text-foreground">Creative Developer &</span>
+                <span className="text-foreground">TVET ICT Trainer &</span>
                 <br />
-                <span className="text-gradient">Visual Storyteller</span>
+                <span className="text-gradient">Full-stack Developer</span>
               </motion.h1>
 
               <motion.p
@@ -90,10 +90,12 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                I'm <span className="text-foreground font-semibold">Wako Dida Godana</span> —
-                I craft meaningful digital experiences through thoughtful design and
-                innovative solutions. Blending creativity with strategy to bring brands
-                to life and connect with audiences on a deeper level.
+                I am a TVET-licensed trainer certified up to KNQF Level 6, dedicated to designing
+                competency-based curricula and delivering practical ICT training that simplifies
+                complex technical concepts. Parallel to my educational role, I work as a freelancer
+                and full stack developer, specializing in end-to-end website design and development.
+                This dual expertise allows me to bridge the gap between theoretical instruction and
+                real-world technical application.
               </motion.p>
 
               <motion.div
@@ -192,7 +194,7 @@ const Hero: React.FC = () => {
                 <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-elegant">
                   <img
                     src={profileImg}
-                    alt="Wako Dida Godana - Full Stack Developer"
+                    alt="Wako Dida Godana - TVET ICT Trainer & Full-stack Developer"
                     className="w-full h-full object-cover"
                   />
                   {/* Overlay gradient */}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, User, FileText, Briefcase, Mail, Menu, X, Layers, Github, Linkedin, Twitter, Facebook, Youtube, Sun, Moon } from "lucide-react";
+import { Home, User, FileText, Briefcase, Mail, Menu, X, Layers, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
-import profileImg from "@/assets/WAQO-300x300.png";
+import logoImg from "@/assets/logo.png";
 
 interface NavigationProps {
   activeSection: string;
@@ -25,13 +25,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
     { id: "contact", label: "Contact", icon: Mail },
   ];
 
-  const socialLinks = [
-    { icon: Twitter, href: "https://twitter.com/wakodida", label: "Twitter" },
-    { icon: Facebook, href: "https://facebook.com/wakodida", label: "Facebook" },
-    { icon: Github, href: "https://github.com/Waqo-Dida-Godana", label: "GitHub" },
-    { icon: Youtube, href: "https://youtube.com/@wakodida", label: "YouTube" },
-    { icon: Linkedin, href: "https://linkedin.com/in/wako-dida-godana", label: "LinkedIn" },
-  ];
+  const socialLinks = [];
 
   const handleNavClick = (sectionId: string) => {
     onSectionChange(sectionId);
@@ -47,8 +41,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
           <div className="text-center mb-8">
             <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden border-4 border-sidebar-accent">
               <img
-                src={profileImg}
-                alt="Wako Dida Godana"
+                src={logoImg}
+                alt="Logo"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -141,8 +135,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
                 <div className="text-center mb-6">
                   <div className="w-24 h-24 mx-auto mb-3 rounded-lg overflow-hidden border-4 border-sidebar-accent">
                     <img
-                      src={profileImg}
-                      alt="Wako Dida Godana"
+                      src={logoImg}
+                      alt="Logo"
                       className="w-full h-full object-cover"
                     />
                   </div>

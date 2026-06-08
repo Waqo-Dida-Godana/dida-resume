@@ -1,9 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "./ui/button";
-import { Download, MessageCircle, MapPin, CheckCircle, Smile, FileText, Headphones, Users, Sparkles } from "lucide-react";
+import { Download, MessageCircle, MapPin, CheckCircle, Smile, FileText, Headphones, Users, Sparkles, Mail, Phone, Globe, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
-import profileImg from "../assets/WAQO-300x300.png";
+import profileImg from "../assets/profile.jpg";
 
 interface StatItemProps {
   icon: React.ReactNode;
@@ -52,7 +52,7 @@ function About() {
         <title>About - Wako Dida Godana</title>
         <meta
           name="description"
-          content="Learn more about Wako Dida Godana, a passionate full stack developer, freelancer, and designer with 5+ years of experience."
+          content="Wako Dida Godana - TVET ICT Trainer, Full-stack Developer, and IT Consultant based in Marsabit, Kenya. BSc IT from Mount Kenya University. TVET licensed trainer, Cisco certified."
         />
       </Helmet>
 
@@ -100,7 +100,7 @@ function About() {
                       Wako Dida Godana
                     </h3>
                     <p className="text-accent font-medium mb-4">
-                      Full Stack Developer & IT Trainer
+                      TVET ICT Trainer & Full-stack Developer
                     </p>
 
                     <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground mb-4">
@@ -118,15 +118,11 @@ function About() {
                 {/* Bio */}
                 <div className="mt-8 space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    I am a versatile full-stack developer and freelancer, specializing in
-                    website design and development. With my skills in both frontend and
-                    backend technologies, I create dynamic and visually appealing websites
-                    tailored to clients' needs.
-                  </p>
-                  <p>
-                    My expertise allows me to handle all aspects of the development process,
-                    from conceptualization to deployment, ensuring high-quality results and
-                    client satisfaction.
+                    I am a full-stack developer, IT consultant, graphic designer, and educator based
+                    in Marsabit, Kenya. I hold a BSc in Information Technology from Mount Kenya
+                    University and a Diploma in Technical Trainer Education (Computer Studies) from
+                    Kenya School of TVET, plus additional professional training from Cisco Networking
+                    Academy.
                   </p>
                 </div>
 
@@ -204,87 +200,76 @@ function About() {
                   About Me
                 </span>
                 <h2 className="text-3xl lg:text-4xl font-bold leading-tight text-foreground font-heading mb-4">
-                  Hi, I'm Wako Dida Godana
+                  A unique blend of education and IT
                 </h2>
-                <p className="text-lg text-accent font-medium">
-                  Digital Product Designer & Creative Developer
-                </p>
               </div>
 
               <div className="prose prose-lg text-muted-foreground mb-8">
                 <p className="leading-relaxed">
-                  Excellent technical aptitude individual, experienced working with core
-                  programming languages. Proficient in web design technologies such as CMS,
-                  JavaScript/jQuery (AJAX, Dynamic UI), Web Services, MySQL, plus strong
-                  analytical and communication skills.
-                </p>
-                <p className="leading-relaxed">
-                  <strong className="text-foreground">Career Objective:</strong> To be compliant
-                  with rules and regulations while taking up duties and responsibilities; with
-                  minimal supervision, either independently or as a team player, in different
-                  environments and under changing working conditions where my abilities, skills,
-                  qualification and experience will lead to the accomplishment of the set goals
-                  and objectives.
+                  Based in Marsabit, Kenya, I am a versatile full-stack developer, graphic designer,
+                  and IT consultant. I build responsive websites and web apps, while also empowering
+                  learners and organizations through practical ICT training.
                 </p>
               </div>
 
               {/* Contact Info Grid */}
               <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="p-4 bg-card rounded-xl border border-border/50">
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Email</span>
-                  <p className="font-medium text-foreground text-sm mt-1">waqogodana98@gmail.com</p>
-                </div>
-                <div className="p-4 bg-card rounded-xl border border-border/50">
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Phone</span>
-                  <p className="font-medium text-foreground text-sm mt-1">+254 716 792 928</p>
-                </div>
-                <div className="p-4 bg-card rounded-xl border border-border/50">
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Website</span>
-                  <p className="font-medium text-accent text-sm mt-1">maganatti.com</p>
-                </div>
-                <div className="p-4 bg-card rounded-xl border border-border/50">
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Freelance</span>
-                  <p className="font-medium text-success text-sm mt-1">Available</p>
-                </div>
+                <a href="mailto:waqogodana98@gmail.com" className="p-3 rounded-lg bg-accent text-accent-foreground flex items-center gap-3 no-underline">
+                  <Mail className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-xs font-medium truncate">waqogodana98@gmail.com</span>
+                </a>
+                <a href="tel:+254716792928" className="p-3 rounded-lg bg-info text-white flex items-center gap-3 no-underline">
+                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-xs font-medium truncate">+254 716 792 928</span>
+                </a>
+                <a href="https://maganatti.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg bg-purple text-white flex items-center gap-3 no-underline">
+                  <Globe className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-xs font-medium truncate">maganatti.com</span>
+                </a>
+                <button onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }} className="p-3 rounded-lg bg-success text-white flex items-center gap-3 cursor-pointer border-none">
+                  <Briefcase className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-xs font-medium truncate">Available</span>
+                </button>
               </div>
 
-              {/* Let's Create Section */}
-              <div className="bg-gradient-dark rounded-2xl p-6 text-center">
-                <h3 className="text-xl font-bold text-sidebar-foreground mb-2">
-                  Let's create something amazing together
+              {/* Hire Me Section */}
+              <div className="bg-gradient-dark rounded-2xl p-5 text-center">
+                <h3 className="text-lg font-bold text-sidebar-foreground mb-2">
+                  Hire me as a Developer or ICT Trainer
                 </h3>
-                <p className="text-sidebar-foreground/70 text-sm mb-4">
-                  Whether you're looking to redesign an existing product or build something
-                  completely new, I'd love to explore how we can bring your vision to life.
+                <p className="text-sidebar-foreground/70 text-xs mb-4">
+                  Need a full-stack developer to build your next web project, or an ICT trainer
+                  to upskill your team? I deliver practical, real-world solutions for both
+                  development and education.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button
-                    asChild
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                <div className="flex flex-col sm:flex-row gap-2 justify-center">
+                  <a
+                    href="https://github.com/Waqo-Dida-Godana"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded bg-red-500 hover:bg-red-600 text-white text-xs font-medium transition-colors no-underline"
                   >
-                    <a
-                      href="https://github.com/Waqo-Dida-Godana"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Portfolio
-                    </a>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="border-sidebar-border text-sidebar-foreground hover:bg-sidebar-accent"
-                    onClick={() => {
-                      const element = document.getElementById('contact');
-                      if (element) {
-                        element.scrollIntoView({
-                          behavior: 'smooth',
-                          block: 'start'
-                        });
-                      }
-                    }}
+                    Hire as Developer
+                  </a>
+                  <a
+                    href="https://gitconnected.com/waqo-dida-godana/resume"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-medium transition-colors no-underline"
                   >
-                    Start a Project
-                  </Button>
+                    Hire as ICT Trainer
+                  </a>
+                  <a
+                    href="#contact"
+                    className="px-3 py-1.5 rounded bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-medium transition-colors no-underline"
+                  >
+                    Contact Me
+                  </a>
                 </div>
               </div>
             </motion.div>

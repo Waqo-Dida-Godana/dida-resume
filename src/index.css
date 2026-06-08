@@ -48,6 +48,9 @@
     --info: 199 89% 48%;
     --info-foreground: 210 40% 98%;
 
+    --purple: 270 80% 50%;
+    --purple-foreground: 210 40% 98%;
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(160 84% 30%) 100%);
     --gradient-subtle: linear-gradient(135deg, hsl(var(--surface)) 0%, hsl(210 20% 96%) 100%);
@@ -121,6 +124,9 @@
     
     --info: 199 89% 48%;
     --info-foreground: 210 40% 98%;
+
+    --purple: 270 80% 50%;
+    --purple-foreground: 210 40% 98%;
 
     /* Gradients - dark mode */
     --gradient-primary: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(160 84% 30%) 100%);
