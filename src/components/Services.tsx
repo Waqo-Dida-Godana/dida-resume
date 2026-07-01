@@ -7,11 +7,12 @@ interface ServiceCardProps {
   description: string;
   features: string[];
   color: string;
+  bgGradient: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, features, color }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, features, color, bgGradient }) => {
   return (
-    <div className="bg-surface rounded-xl p-8 shadow-elegant border border-border/50 hover:shadow-glow transition-all duration-300 group">
+    <div className={`${bgGradient} rounded-xl p-8 shadow-elegant border border-white/10 hover:shadow-glow transition-all duration-300 group`}>
       <div className={`w-16 h-16 ${color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300`}>
         {icon}
       </div>
@@ -34,10 +35,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, fea
 const Services: React.FC = () => {
   const services = [
     {
-      icon: <Code className="w-8 h-8 text-accent" />,
+      icon: <Code className="w-8 h-8 text-blue-600" />,
       title: "Web Development",
       description: "Custom web applications and websites built with modern technologies and best practices.",
-      color: "bg-accent/10",
+      color: "bg-blue-500/10",
+      bgGradient: "bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-violet-500/10",
       features: [
         "React/Next.js Applications",
         "Custom CMS Development",
@@ -48,10 +50,11 @@ const Services: React.FC = () => {
       ]
     },
     {
-      icon: <Palette className="w-8 h-8 text-warning" />,
+      icon: <Palette className="w-8 h-8 text-pink-600" />,
       title: "Graphic Design",
       description: "Creative visual solutions that communicate your brand message effectively and professionally.",
-      color: "bg-warning/10",
+      color: "bg-pink-500/10",
+      bgGradient: "bg-gradient-to-br from-pink-500/10 via-rose-500/10 to-orange-500/10",
       features: [
         "Brand Identity Design",
         "Logo & Business Cards",
@@ -62,10 +65,11 @@ const Services: React.FC = () => {
       ]
     },
     {
-      icon: <Monitor className="w-8 h-8 text-success" />,
+      icon: <Monitor className="w-8 h-8 text-emerald-600" />,
       title: "UI/UX Design",
       description: "User-centered design approaches that create intuitive and engaging digital experiences.",
-      color: "bg-success/10",
+      color: "bg-emerald-500/10",
+      bgGradient: "bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-green-500/10",
       features: [
         "User Interface Design",
         "User Experience Research",
@@ -76,10 +80,11 @@ const Services: React.FC = () => {
       ]
     },
     {
-      icon: <Smartphone className="w-8 h-8 text-info" />,
+      icon: <Smartphone className="w-8 h-8 text-indigo-600" />,
       title: "Mobile Development",
       description: "Cross-platform mobile applications that provide seamless user experiences.",
-      color: "bg-info/10",
+      color: "bg-indigo-500/10",
+      bgGradient: "bg-gradient-to-br from-indigo-500/10 via-blue-500/10 to-cyan-500/10",
       features: [
         "React Native Apps",
         "Progressive Web Apps",
@@ -90,10 +95,11 @@ const Services: React.FC = () => {
       ]
     },
     {
-      icon: <Settings className="w-8 h-8 text-purple-500" />,
+      icon: <Settings className="w-8 h-8 text-amber-600" />,
       title: "IT Consultancy",
       description: "Strategic technology guidance to help your business make informed decisions.",
-      color: "bg-purple-500/10",
+      color: "bg-amber-500/10",
+      bgGradient: "bg-gradient-to-br from-amber-500/10 via-orange-500/10 to-yellow-500/10",
       features: [
         "Technology Strategy",
         "System Architecture",
@@ -104,10 +110,11 @@ const Services: React.FC = () => {
       ]
     },
     {
-      icon: <Search className="w-8 h-8 text-red-500" />,
+      icon: <Search className="w-8 h-8 text-rose-600" />,
       title: "Digital Marketing",
       description: "Comprehensive digital marketing strategies to boost your online presence.",
-      color: "bg-red-500/10",
+      color: "bg-rose-500/10",
+      bgGradient: "bg-gradient-to-br from-rose-500/10 via-red-500/10 to-orange-500/10",
       features: [
         "SEO Optimization",
         "Content Strategy",
@@ -120,7 +127,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background">
+    <section id="services" className="py-20 bg-background lg:pl-[280px]">
       <div className="px-4 lg:pl-0 lg:pr-12">
         {/* Section Header */}
         <div className="text-center mb-16">
