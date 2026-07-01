@@ -429,6 +429,27 @@ const Resume: React.FC = () => {
       year: "2021",
       certColor: "text-orange-500",
       yearColor: "bg-orange-100"
+    },
+    {
+      title: "Understanding Open Educational Resources (OER)",
+      issuer: "Commonwealth of Learning",
+      year: "2024",
+      certColor: "text-sky-500",
+      yearColor: "bg-sky-100"
+    },
+    {
+      title: "Quality Assurance of Blended & Online Learning",
+      issuer: "Commonwealth of Learning",
+      year: "2023",
+      certColor: "text-indigo-500",
+      yearColor: "bg-indigo-100"
+    },
+    {
+      title: "Universal Design For Learning (UDL)",
+      issuer: "Commonwealth of Learning",
+      year: "2024",
+      certColor: "text-violet-500",
+      yearColor: "bg-violet-100"
     }
   ];
 
