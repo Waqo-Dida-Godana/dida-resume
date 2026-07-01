@@ -649,27 +649,27 @@ const Resume: React.FC = () => {
           <div className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200/50 max-w-4xl mx-auto">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <GraduationCap className="w-6 h-6 text-blue-600" />
+                <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-700" />
               </div>
               <div>
-                <h4 className="font-bold text-blue-800 mb-1">ALX Front-End Web Pro-Development Program</h4>
-                <p className="text-sm text-blue-700 mb-3">
+                <h4 className="font-bold text-blue-800 dark:text-blue-900 mb-1">ALX Front-End Web Pro-Development Program</h4>
+                <p className="text-sm text-blue-700 dark:text-blue-800 mb-3">
                   A specialist Front-End Developer program focusing on creating user-facing parts of websites and 
                   applications, ensuring they are visually appealing, interactive, and functional.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span className="text-foreground font-medium">Professional Foundations</span>
-                    <span className="text-xs text-emerald-600">Completed - Jun 2025</span>
+                    <span className="text-gray-900 dark:text-gray-900 font-medium">Professional Foundations</span>
+                    <span className="text-xs text-emerald-600 dark:text-emerald-700">Completed - Jun 2025</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div>
-                    <span className="text-foreground font-medium">Front End ProDev</span>
-                    <span className="text-xs text-amber-600">In Progress - Oct 2025</span>
+                    <span className="text-gray-900 dark:text-gray-900 font-medium">Front End ProDev</span>
+                    <span className="text-xs text-amber-600 dark:text-amber-700">In Progress - Oct 2025</span>
                   </div>
                 </div>
-                <p className="text-xs text-blue-600 mt-3">
+                <p className="text-xs text-blue-600 dark:text-blue-800 mt-3">
                   Master advanced front-end technologies like React, Next.js, and TypeScript to build responsive and dynamic user interfaces.
                 </p>
               </div>
