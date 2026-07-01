@@ -43,6 +43,7 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ icon, title, skills, colo
 const CountUp: React.FC<{ to: number; color: string }> = ({ to, color }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [count, setCount] = React.useState(0);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, { duration: 2000 });
 
@@ -52,13 +53,20 @@ const CountUp: React.FC<{ to: number; color: string }> = ({ to, color }) => {
     }
   }, [isInView, motionValue, to]);
 
+  React.useEffect(() => {
+    const unsubscribe = springValue.on('change', (latest) => {
+      setCount(Math.round(latest));
+    });
+    return () => unsubscribe();
+  }, [springValue]);
+
   return (
-    <motion.div
+    <div
       ref={ref}
       className={`text-4xl font-bold ${color} mb-2`}
     >
-      {Math.round(springValue.get())}%
-    </motion.div>
+      {count}%
+    </div>
   );
 };
 
