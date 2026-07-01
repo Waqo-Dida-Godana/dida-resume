@@ -1,5 +1,6 @@
 import React from "react";
 import { Code, Palette, Monitor, Settings, Database, Layers } from "lucide-react";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 
 interface SkillCategoryProps {
   icon: React.ReactNode;
@@ -36,6 +37,28 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ icon, title, skills, colo
         ))}
       </div>
     </div>
+  );
+};
+
+const CountUp: React.FC<{ to: number; color: string }> = ({ to, color }) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { duration: 2000 });
+
+  React.useEffect(() => {
+    if (isInView) {
+      motionValue.set(to);
+    }
+  }, [isInView, motionValue, to]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`text-4xl font-bold ${color} mb-2`}
+    >
+      {Math.round(springValue.get())}%
+    </motion.div>
   );
 };
 
@@ -159,9 +182,7 @@ const Skills: React.FC = () => {
               { label: "UI/UX Design", percentage: 75, color: "text-info" }
             ].map((skill, index) => (
               <div key={index} className="text-center">
-                <div className={`text-4xl font-bold ${skill.color} mb-2`}>
-                  {skill.percentage}%
-                </div>
+                <CountUp to={skill.percentage} color={skill.color} />
                 <div className="text-muted-foreground font-medium">
                   {skill.label}
                 </div>
