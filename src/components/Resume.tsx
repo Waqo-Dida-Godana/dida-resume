@@ -28,22 +28,22 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
   const Icon = type === "work" ? Briefcase : GraduationCap;
   
   return (
-    <div className="relative pl-8 pb-8 last:pb-0 group">
+    <div className="relative pl-8 pb-4 group">
       {/* Timeline line */}
       <div className="absolute left-[11px] top-10 bottom-0 w-0.5 bg-border group-last:hidden"></div>
       
       {/* Timeline dot */}
-      <div className="absolute left-0 top-2 w-6 h-6 bg-accent rounded-full border-4 border-background flex items-center justify-center">
+      <div className="absolute left-0 top-2 w-6 h-6 bg-accent rounded-full border-4 border-background flex items-center justify-center flex-shrink-0 z-10">
         <div className="w-2 h-2 bg-accent-foreground rounded-full"></div>
       </div>
       
       {/* Period Badge */}
-      <div className={`inline-block bg-accent/10 ${periodColor} px-3 py-1 rounded-full text-sm font-medium mb-3`}>
+      <div className={`inline-block bg-accent/10 ${periodColor} px-3 py-1 rounded-full text-xs sm:text-sm font-medium mb-4`}>
         {period}
       </div>
       
       {/* Content */}
-      <div className="bg-card rounded-xl p-5 shadow-card border border-border/50 hover-lift">
+      <div className="bg-card rounded-xl p-4 sm:p-5 shadow-card border border-border/50 hover-lift">
         <div className="flex items-start gap-3 mb-3">
           <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
             <Icon className={`w-5 h-5 ${iconColor}`} />
