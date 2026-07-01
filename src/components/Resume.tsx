@@ -614,7 +614,7 @@ const Resume: React.FC = () => {
             <h3 className="text-xl font-bold text-foreground font-heading">Professional Certifications</h3>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4">
             {certifications.map((cert, index) => (
               <motion.div
                 key={index}
@@ -629,7 +629,7 @@ const Resume: React.FC = () => {
           </div>
 
           {/* TVETA License Banner */}
-          <div className="mt-8 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 text-center max-w-4xl mx-auto">
+          <div className="mt-8 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 text-center">
             <div className="flex items-center justify-center gap-2 mb-3">
               <BadgeCheck className="w-6 h-6 text-emerald-600" />
               <h4 className="text-lg font-bold text-emerald-800">TVETA Licensed Trainer</h4>
@@ -646,7 +646,7 @@ const Resume: React.FC = () => {
           </div>
 
           {/* ALX Program Banner */}
-          <div className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200/50 max-w-4xl mx-auto">
+          <div className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200/50">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                 <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-700" />
