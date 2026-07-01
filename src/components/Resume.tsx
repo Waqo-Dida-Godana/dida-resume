@@ -449,7 +449,7 @@ const Resume: React.FC = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.4 }}
     >
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="px-6 lg:pl-0 lg:pr-12">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <span className="inline-block bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">

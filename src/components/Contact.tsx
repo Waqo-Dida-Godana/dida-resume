@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 lg:pl-[280px] bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="px-6 lg:pl-0 lg:pr-12">
         {/* Section Header */}
         <div className="text-center mb-12 animate-fade-in">
           <span className="inline-block bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-4">

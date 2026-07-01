@@ -44,7 +44,7 @@ function About() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="container mx-auto px-6 lg:px-12">
+        <div className="px-6 lg:pl-0 lg:pr-12">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column: Profile Card */}
             <motion.div

@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="px-6 lg:pl-0 lg:pr-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <motion.div

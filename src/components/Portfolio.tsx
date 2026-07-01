@@ -139,7 +139,7 @@ const Portfolio: React.FC = () => {
 
   return (
     <section id="portfolio" className="py-20 bg-background">
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="px-4 lg:pl-0 lg:pr-12">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block bg-gradient-primary text-accent-foreground px-6 py-2 rounded-full text-sm font-semibold tracking-wide mb-6">
