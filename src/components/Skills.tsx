@@ -42,10 +42,10 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ icon, title, skills, colo
 const Skills: React.FC = () => {
   const skillCategories = [
     {
-      icon: <Code className="w-6 h-6 text-accent" />,
+      icon: <Code className="w-6 h-6 text-blue-600" />,
       title: "Frontend Development",
-      color: "bg-accent/10",
-      bgGradient: "bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-indigo-500/10",
+      color: "bg-blue-500/10",
+      bgGradient: "bg-gradient-to-br from-blue-500/10 via-blue-400/10 to-indigo-500/10",
       skills: [
         { name: "React/Next.js", level: 95 },
         { name: "TypeScript", level: 90 },
@@ -55,9 +55,9 @@ const Skills: React.FC = () => {
       ]
     },
     {
-      icon: <Database className="w-6 h-6 text-success" />,
+      icon: <Database className="w-6 h-6 text-emerald-600" />,
       title: "Backend Development",
-      color: "bg-success/10",
+      color: "bg-emerald-500/10",
       bgGradient: "bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-green-500/10",
       skills: [
         { name: "Node.js", level: 88 },
@@ -68,10 +68,10 @@ const Skills: React.FC = () => {
       ]
     },
     {
-      icon: <Palette className="w-6 h-6 text-warning" />,
+      icon: <Palette className="w-6 h-6 text-pink-600" />,
       title: "Design & UI/UX",
-      color: "bg-warning/10",
-      bgGradient: "bg-gradient-to-br from-pink-500/10 via-rose-500/10 to-orange-500/10",
+      color: "bg-pink-500/10",
+      bgGradient: "bg-gradient-to-br from-pink-500/10 via-fuchsia-500/10 to-purple-500/10",
       skills: [
         { name: "Graphic Design", level: 95 },
         { name: "UI/UX Design", level: 75 },
@@ -81,10 +81,10 @@ const Skills: React.FC = () => {
       ]
     },
     {
-      icon: <Monitor className="w-6 h-6 text-info" />,
+      icon: <Monitor className="w-6 h-6 text-indigo-600" />,
       title: "CMS & Platforms",
-      color: "bg-info/10",
-      bgGradient: "bg-gradient-to-br from-indigo-500/10 via-blue-500/10 to-cyan-500/10",
+      color: "bg-indigo-500/10",
+      bgGradient: "bg-gradient-to-br from-indigo-500/10 via-violet-500/10 to-purple-500/10",
       skills: [
         { name: "WordPress", level: 95 },
         { name: "Drupal", level: 80 },
@@ -94,10 +94,10 @@ const Skills: React.FC = () => {
       ]
     },
     {
-      icon: <Layers className="w-6 h-6 text-purple-500" />,
+      icon: <Layers className="w-6 h-6 text-amber-600" />,
       title: "DevOps & Tools",
-      color: "bg-purple-500/10",
-      bgGradient: "bg-gradient-to-br from-amber-500/10 via-orange-500/10 to-red-500/10",
+      color: "bg-amber-500/10",
+      bgGradient: "bg-gradient-to-br from-amber-500/10 via-orange-500/10 to-yellow-500/10",
       skills: [
         { name: "Git/GitHub", level: 90 },
         { name: "Docker", level: 75 },
@@ -107,10 +107,10 @@ const Skills: React.FC = () => {
       ]
     },
     {
-      icon: <Settings className="w-6 h-6 text-red-500" />,
+      icon: <Settings className="w-6 h-6 text-rose-600" />,
       title: "Technical Services",
-      color: "bg-red-500/10",
-      bgGradient: "bg-gradient-to-br from-red-500/10 via-rose-500/10 to-pink-500/10",
+      color: "bg-rose-500/10",
+      bgGradient: "bg-gradient-to-br from-rose-500/10 via-red-500/10 to-orange-500/10",
       skills: [
         { name: "IT Consultancy", level: 88 },
         { name: "Hardware Support", level: 85 },
