@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 lg:pl-[280px] bg-muted/30">
+    <section id="contact" className="py-20 lg:pl-[300px] bg-muted/30">
       <div className="px-6 lg:pl-0 lg:pr-12">
         {/* Section Header */}
         <div className="text-center mb-12 animate-fade-in">

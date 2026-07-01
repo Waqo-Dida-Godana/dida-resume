@@ -159,10 +159,26 @@
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   /* Custom scrollbar */

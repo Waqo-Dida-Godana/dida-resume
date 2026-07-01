@@ -1,5 +1,5 @@
 import React from "react";
-import { Code, Palette, Monitor, Settings, Smartphone, Search } from "lucide-react";
+import { Code, Palette, Monitor, Settings, Smartphone, Search, ArrowUpRight } from "lucide-react";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -127,8 +127,92 @@ const Services: React.FC = () => {
     }
   ];
 
+  const projects = [
+    {
+      title: "JangaVoice Early Warning System",
+      description: "A multi-hazard early warning platform for vulnerable communities in Northern Kenya, helping residents report climate, health, and water issues while sending real-time alerts to agencies and humanitarian partners.",
+      status: "In Production",
+      tags: ["Vue.js", "Django", "MySQL", "Docker", "RabbitMQ", "Redis"],
+      metrics: ["5,000+ Users", "Real-time Alerts", "Live"],
+      accent: "from-emerald-500/20 to-teal-500/20",
+      badge: "text-emerald-300"
+    },
+    {
+      title: "MagaWallet",
+      description: "A personal expense tracker with M-Pesa integration that automatically reads transaction SMS, supports biometric authentication, and exports detailed spending reports as PDF.",
+      status: "Live",
+      tags: ["React", "TypeScript", "Firebase", "Capacitor", "Tailwind CSS", "M-Pesa"],
+      metrics: ["Biometric Auth", "Google Drive Backup", "Live"],
+      accent: "from-blue-500/20 to-cyan-500/20",
+      badge: "text-sky-300"
+    },
+    {
+      title: "StockYangu",
+      description: "A cloud-based inventory management system for Kenyan SMEs, designed with offline mobile support, barcode scanning, credit management, and real-time analytics.",
+      status: "Live",
+      tags: ["React", "Firebase", "Capacitor", "Node.js"],
+      metrics: ["Offline Mobile", "Barcode Scanning", "Live"],
+      accent: "from-violet-500/20 to-fuchsia-500/20",
+      badge: "text-violet-300"
+    },
+    {
+      title: "Online Timetable Generator",
+      description: "An automated timetable generation system for schools that handles class scheduling, teacher assignments, room allocation, and conflict resolution efficiently.",
+      status: "Live",
+      tags: ["Django", "Vue.js", "PostgreSQL"],
+      metrics: ["Smart Scheduling", "Conflict Resolution", "Live"],
+      accent: "from-amber-500/20 to-orange-500/20",
+      badge: "text-amber-300"
+    },
+    {
+      title: "Nexus Focus Consultancy",
+      description: "A professional website for an environmental consulting firm focused on Environmental Impact Assessments (EIA) and Environmental and Social Impact Assessments (ESEA).",
+      status: "Live",
+      tags: ["Django", "Vue.js", "MySQL"],
+      metrics: ["Consultancy Website", "EIA Focus", "Live"],
+      accent: "from-rose-500/20 to-pink-500/20",
+      badge: "text-rose-300"
+    },
+    {
+      title: "Alpharika Ltd",
+      description: "An API platform for commerce, ERP, commodity markets, and insurance services across Africa, built to support large-scale business operations.",
+      status: "Live",
+      tags: ["Node.js", "Express.js", "PostgreSQL"],
+      metrics: ["API Platform", "Enterprise Ready", "Live"],
+      accent: "from-indigo-500/20 to-blue-500/20",
+      badge: "text-indigo-300"
+    },
+    {
+      title: "Maganatti E-Commerce",
+      description: "A full e-commerce platform for electronic products with payment processing, inventory management, and order tracking features.",
+      status: "Live",
+      tags: ["Django", "DRF", "PostgreSQL"],
+      metrics: ["Payment Processing", "Order Tracking", "Live"],
+      accent: "from-lime-500/20 to-emerald-500/20",
+      badge: "text-lime-300"
+    },
+    {
+      title: "Maganatti Website",
+      description: "A polished company website for Maganatti, built to showcase services, projects, and professional presence with a modern digital experience.",
+      status: "Live",
+      tags: ["React", "Tailwind CSS", "Vite", "Modern UI"],
+      metrics: ["Company Website", "Professional Brand", "Live"],
+      accent: "from-sky-500/20 to-blue-500/20",
+      badge: "text-sky-300"
+    },
+    {
+      title: "ParlaAfrica Website",
+      description: "A professional website for ParlaAfrica built to present organizational information, initiatives, and public-facing content in a clear and engaging way.",
+      status: "Live",
+      tags: ["React", "Tailwind CSS", "Responsive UI", "Content-First"],
+      metrics: ["NGO Website", "Responsive Design", "Live"],
+      accent: "from-fuchsia-500/20 to-purple-500/20",
+      badge: "text-fuchsia-300"
+    }
+  ];
+
   return (
-    <section id="services" className="py-20 bg-background lg:pl-[280px]">
+    <section id="services" className="py-20 bg-background lg:pl-[300px]">
       <div className="px-4 lg:pl-0 lg:pr-12">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -164,35 +248,95 @@ const Services: React.FC = () => {
                 step: "01",
                 title: "Discovery",
                 description: "Understanding your needs, goals, and project requirements through detailed consultation.",
-                color: "text-accent"
+                cardClass: "bg-gradient-to-br from-amber-500/15 via-orange-500/10 to-yellow-500/15 border-amber-500/30 text-amber-700 dark:text-amber-300",
+                numberClass: "text-amber-600 dark:text-amber-400"
               },
               {
-                step: "02", 
+                step: "02",
                 title: "Planning",
                 description: "Creating comprehensive project roadmap, timeline, and technical specifications.",
-                color: "text-warning"
+                cardClass: "bg-gradient-to-br from-sky-500/15 via-cyan-500/10 to-blue-500/15 border-sky-500/30 text-sky-700 dark:text-sky-300",
+                numberClass: "text-sky-600 dark:text-sky-400"
               },
               {
                 step: "03",
                 title: "Development",
                 description: "Building your solution using modern technologies and industry best practices.",
-                color: "text-success"
+                cardClass: "bg-gradient-to-br from-emerald-500/15 via-green-500/10 to-lime-500/15 border-emerald-500/30 text-emerald-700 dark:text-emerald-300",
+                numberClass: "text-emerald-600 dark:text-emerald-400"
               },
               {
                 step: "04",
                 title: "Delivery",
                 description: "Testing, optimization, deployment, and ongoing support for your project.",
-                color: "text-info"
+                cardClass: "bg-gradient-to-br from-violet-500/15 via-fuchsia-500/10 to-purple-500/15 border-violet-500/30 text-violet-700 dark:text-violet-300",
+                numberClass: "text-violet-600 dark:text-violet-400"
               }
             ].map((process, index) => (
-              <div key={index} className="text-center">
-                <div className={`text-6xl font-bold ${process.color} mb-4 opacity-20`}>
+              <div key={index} className={`rounded-2xl border p-6 shadow-sm ${process.cardClass}`}>
+                <div className={`text-6xl font-bold mb-4 opacity-80 ${process.numberClass}`}>
                   {process.step}
                 </div>
-                <h4 className="text-xl font-bold text-foreground mb-3">{process.title}</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <h4 className="text-xl font-bold mb-3">{process.title}</h4>
+                <p className="text-sm leading-relaxed opacity-90">
                   {process.description}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Projects Section */}
+        <div id="projects" className="mt-16 rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 lg:p-12 shadow-elegant text-white">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between mb-10">
+            <div>
+              <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-slate-200 mb-4">
+                Projects
+              </span>
+              <h3 className="text-3xl font-bold mb-3">Featured Work</h3>
+              <p className="text-slate-300 max-w-2xl">
+                All projects built under Maganatti Tech Solutions, focused on practical digital products that solve real community and business challenges.
+              </p>
+            </div>
+            <a
+              href="https://maganatti.com/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/15 px-4 py-2 text-sm font-semibold text-accent transition-all duration-300 hover:bg-accent hover:text-accent-foreground shadow-sm"
+            >
+              View reference site
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className={`rounded-2xl border border-white/10 bg-gradient-to-br ${project.accent} p-6 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/15`}
+              >
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <span className={`rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] ${project.badge}`}>
+                    {project.status}
+                  </span>
+                  <span className="text-xs text-slate-400">{index + 1}</span>
+                </div>
+                <h4 className="text-xl font-semibold mb-3 text-white">{project.title}</h4>
+                <p className="text-sm leading-relaxed text-slate-300 mb-5">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="rounded-full border border-white/10 bg-slate-800/70 px-3 py-1 text-xs text-slate-200">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {project.metrics.map((metric) => (
+                    <span key={metric} className="rounded-full bg-accent/15 px-3 py-1 text-xs font-medium text-accent">
+                      {metric}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

@@ -25,7 +25,7 @@ const Index = () => {
   // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'resume', 'services', 'contact'];
+      const sections = ['home', 'about', 'resume', 'projects', 'services', 'contact'];
       const scrollPosition = window.scrollY + 100; // Offset for navbar
 
       for (const sectionId of sections) {
@@ -74,12 +74,12 @@ const Index = () => {
         <meta name="twitter:description" content="Full Stack Developer and IT Trainer with expertise in React, web development, and digital solutions." />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background overflow-x-hidden">
         <Navigation
           activeSection={activeSection}
           onSectionChange={handleSectionChange}
         />
-        <main>
+        <main className="overflow-x-hidden">
           <section id="home">
             <Hero />
           </section>

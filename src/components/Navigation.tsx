@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Home, User, FileText, Briefcase, Mail, Menu, X, Layers, Sun, Moon, MapPin, CheckCircle } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -21,7 +21,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
     { id: "home", label: "Home", icon: Home },
     { id: "about", label: "About", icon: User },
     { id: "resume", label: "Resume", icon: FileText },
-    { id: "services", label: "Portfolio", icon: Layers },
+    { id: "services", label: "Services", icon: Layers },
+    { id: "projects", label: "Projects", icon: Briefcase },
     { id: "contact", label: "Contact", icon: Mail },
   ];
 
@@ -32,14 +33,21 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
     setIsMobileMenuOpen(false);
   };
 
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       {/* Desktop Sidebar Navigation - Fixed left */}
-      <nav className="hidden lg:flex fixed left-0 top-0 bottom-0 w-[280px] z-50">
-        <div className="w-full h-full bg-sidebar flex flex-col items-center py-8 px-6">
+      <nav className="hidden lg:flex fixed left-0 top-0 bottom-0 lg:w-[220px] xl:w-[250px] z-50">
+        <div className="w-full h-full bg-sidebar flex flex-col items-center py-6 px-4">
           {/* Profile Section */}
           <div className="text-left mb-8">
-            <div className="w-32 h-32 mb-4 rounded-lg overflow-hidden border-4 border-sidebar-accent">
+            <div className="w-28 h-28 mb-4 rounded-lg overflow-hidden border-4 border-sidebar-accent">
               <img
                 src={logoImg}
                 alt="Logo"
@@ -64,7 +72,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
           </div>
 
           {/* Social Links */}
-          <div className="flex gap-2 mb-8">
+          <div className="flex gap-2 mb-5">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
@@ -79,33 +87,43 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
             ))}
           </div>
 
-          {/* Theme Toggle */}
-          <div className="mb-8">
-            <Button
-              onClick={toggleTheme}
-              variant="ghost"
-              size="icon"
-              className="w-9 h-9 rounded-full bg-sidebar-accent text-sidebar-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </Button>
+          {/* Theme toggle */}
+          <div className="mb-8 w-full rounded-2xl border border-sidebar-border/50 bg-sidebar-accent/20 p-3">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-sidebar-foreground/50 mb-1">
+                  Theme
+                </p>
+                <p className="text-sm font-medium text-sidebar-foreground">
+                  Toggle light / dark mode
+                </p>
+              </div>
+              <Button
+                onClick={toggleTheme}
+                variant="ghost"
+                size="icon"
+                className="w-9 h-9 rounded-full bg-sidebar-accent text-sidebar-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </Button>
+            </div>
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-col gap-1 w-full flex-1">
+          <div className="flex flex-col gap-2 w-full flex-1">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => handleNavClick(id)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-300 w-full ${
+                className={`flex items-center gap-3 px-3 py-3 rounded-2xl text-left transition-all duration-300 w-full ${
                   activeSection === id
                     ? "text-accent bg-sidebar-accent"
                     : "text-sidebar-foreground hover:text-accent hover:bg-sidebar-accent/50"
                 }`}
               >
                 <Icon className="w-5 h-5" />
-                <span className="font-medium">{label}</span>
+                <span className="font-medium text-sm">{label}</span>
               </button>
             ))}
           </div>
@@ -141,7 +159,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
               className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            <div className="fixed inset-y-0 left-0 w-[280px] bg-sidebar z-50 animate-slide-in-left">
+            <div className="fixed inset-y-0 left-0 w-[min(86vw,240px)] md:w-[min(80vw,260px)] bg-sidebar z-50 animate-slide-in-left">
               <div className="flex flex-col h-full p-6">
                 {/* Profile */}
                 <div className="text-left mb-6">
@@ -185,8 +203,31 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
                   ))}
                 </div>
 
+                {/* Mobile theme toggle */}
+                <div className="mb-6 w-full rounded-2xl border border-sidebar-border/50 bg-sidebar-accent/20 p-3">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.25em] text-sidebar-foreground/50 mb-1">
+                        Theme
+                      </p>
+                      <p className="text-xs font-medium text-sidebar-foreground">
+                        Toggle light / dark
+                      </p>
+                    </div>
+                    <Button
+                      onClick={toggleTheme}
+                      variant="ghost"
+                      size="icon"
+                      className="w-9 h-9 rounded-full bg-sidebar-accent text-sidebar-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                      aria-label="Toggle theme"
+                    >
+                      {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                    </Button>
+                  </div>
+                </div>
+
                 {/* Nav Links */}
-                <div className="flex flex-col gap-1 flex-1">
+                <div className="flex flex-col gap-2 flex-1">
                   {navItems.map(({ id, label, icon: Icon }) => (
                     <button
                       key={id}

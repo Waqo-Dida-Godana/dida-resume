@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
   return (
     <motion.section
       id="home"
-      className="min-h-screen flex items-center py-20 lg:pl-[280px]"
+      className="min-h-[calc(100vh-6rem)] flex items-center py-12 lg:pl-[300px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}

@@ -38,7 +38,7 @@ function About() {
       {/* About Section */}
       <motion.section
         id="about"
-        className="py-20 lg:pl-[280px]"
+        className="py-20 lg:pl-[300px]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -241,8 +241,10 @@ function About() {
                 {/* Quote Card */}
                 <div className="mt-6 bg-sidebar rounded-2xl p-6 text-sidebar-foreground">
                   <blockquote className="italic text-sidebar-foreground/80">
-                    "Good design is not about perfection - it's about understanding, empathy,
-                    and continuous learning from the people who use what we create."
+                    "As a developer, I believe the best technology isn't measured by how complex it is,
+                    but by how effectively it improves people's lives. Great design comes from understanding
+                    users, empathizing with their experiences and embracing continuous learning.
+                    Every project is an opportunity to build solutions that are not only functional but also meaningful."
                   </blockquote>
                 </div>
               </div>
