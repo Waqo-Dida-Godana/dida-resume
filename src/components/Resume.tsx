@@ -93,7 +93,7 @@ const CertificationCard: React.FC<CertificationProps> = ({ title, issuer, year, 
         <p className="text-xs text-muted-foreground">{issuer}</p>
         {licenseNo && <p className={`text-xs ${certColor} mt-1`}>License: {licenseNo}</p>}
       </div>
-      <span className={`text-xs text-foreground ${yearColor} px-2 py-1 rounded`}>{year}</span>
+      <span className={`text-xs ${yearColor} px-2 py-1 rounded dark:text-gray-900`}>{year}</span>
     </div>
   );
 };
