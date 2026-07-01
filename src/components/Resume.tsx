@@ -454,12 +454,12 @@ const Resume: React.FC = () => {
   ];
 
   const technicalSkills = [
-    { skill: "Web Design", percentage: 90, skillColor: "text-blue-500", progressColor: "bg-blue-500", delay: 0 },
-    { skill: "Graphic Design", percentage: 95, skillColor: "text-purple-500", progressColor: "bg-purple-500", delay: 0.1 },
-    { skill: "WordPress/CMS", percentage: 90, skillColor: "text-emerald-500", progressColor: "bg-emerald-500", delay: 0.2 },
-    { skill: "Hardware & Cyber Services", percentage: 85, skillColor: "text-orange-500", progressColor: "bg-orange-500", delay: 0.3 },
-    { skill: "IT Consultancy", percentage: 80, skillColor: "text-rose-500", progressColor: "bg-rose-500", delay: 0.4 },
-    { skill: "UI/UX Design", percentage: 55, skillColor: "text-cyan-500", progressColor: "bg-cyan-500", delay: 0.5 }
+    { skill: "Web Design", percentage: 90, skillColor: "text-blue-700", progressColor: "bg-blue-600", delay: 0 },
+    { skill: "Graphic Design", percentage: 95, skillColor: "text-purple-700", progressColor: "bg-purple-600", delay: 0.1 },
+    { skill: "WordPress/CMS", percentage: 90, skillColor: "text-emerald-700", progressColor: "bg-emerald-600", delay: 0.2 },
+    { skill: "Hardware & Cyber Services", percentage: 85, skillColor: "text-orange-700", progressColor: "bg-orange-600", delay: 0.3 },
+    { skill: "IT Consultancy", percentage: 80, skillColor: "text-rose-700", progressColor: "bg-rose-600", delay: 0.4 },
+    { skill: "UI/UX Design", percentage: 55, skillColor: "text-cyan-700", progressColor: "bg-cyan-600", delay: 0.5 }
   ];
 
   return (
@@ -545,14 +545,14 @@ const Resume: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div 
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 shadow-card border border-blue-200/50"
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 shadow-card border border-blue-200/50 dark:border-blue-800/50"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h4 className="font-semibold text-blue-700 mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-4 flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full"></div>
                 Technical Expertise
               </h4>
               <div className="space-y-4">
@@ -562,14 +562,14 @@ const Resume: React.FC = () => {
               </div>
             </motion.div>
             <motion.div 
-              className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-6 shadow-card border border-purple-200/50"
+              className="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 shadow-card border border-purple-200/50 dark:border-purple-800/50"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h4 className="font-semibold text-purple-700 mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-4 flex items-center gap-2">
+                <div className="w-2 h-2 bg-purple-500 dark:bg-purple-400 rounded-full"></div>
                 Professional Skills
               </h4>
               <div className="space-y-4">
