@@ -85,7 +85,7 @@ interface CertificationProps {
 const CertificationCard: React.FC<CertificationProps> = ({ title, issuer, year, licenseNo, certColor = "text-accent", yearColor = "bg-muted", bgGradient = "bg-gradient-to-br from-gray-500/10 to-gray-600/10" }) => {
   const bgClassName = certColor.replace('text-', '') + '/10';
   return (
-    <div className={`${bgGradient} rounded-xl p-4 border border-white/10 hover-lift transition-all duration-300 hover:scale-102`}>
+    <div className={`flex items-center gap-4 ${bgGradient} rounded-xl p-4 border border-white/10 hover-lift transition-all duration-300 hover:scale-102`}>
       <div className={`w-12 h-12 ${bgClassName} rounded-xl flex items-center justify-center flex-shrink-0`}>
         <BadgeCheck className={`w-6 h-6 ${certColor}`} />
       </div>
