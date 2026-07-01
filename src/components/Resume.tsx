@@ -79,13 +79,14 @@ interface CertificationProps {
   licenseNo?: string;
   certColor?: string;
   yearColor?: string;
+  bgGradient?: string;
 }
 
-const CertificationCard: React.FC<CertificationProps> = ({ title, issuer, year, licenseNo, certColor = "text-accent", yearColor = "bg-muted" }) => {
+const CertificationCard: React.FC<CertificationProps> = ({ title, issuer, year, licenseNo, certColor = "text-accent", yearColor = "bg-muted", bgGradient = "bg-gradient-to-br from-gray-500/10 to-gray-600/10" }) => {
   const bgClassName = certColor.replace('text-', '') + '/10';
   return (
-    <div className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border/50 hover-lift transition-all duration-300 hover:scale-102">
-      <div className={`w-12 h-12 bg-${bgClassName} rounded-xl flex items-center justify-center flex-shrink-0`}>
+    <div className={`${bgGradient} rounded-xl p-4 border border-white/10 hover-lift transition-all duration-300 hover:scale-102`}>
+      <div className={`w-12 h-12 ${bgClassName} rounded-xl flex items-center justify-center flex-shrink-0`}>
         <BadgeCheck className={`w-6 h-6 ${certColor}`} />
       </div>
       <div className="flex-1 min-w-0">
@@ -93,7 +94,7 @@ const CertificationCard: React.FC<CertificationProps> = ({ title, issuer, year, 
         <p className="text-xs text-muted-foreground">{issuer}</p>
         {licenseNo && <p className={`text-xs ${certColor} mt-1`}>License: {licenseNo}</p>}
       </div>
-      <span className={`text-xs ${yearColor} px-2 py-1 rounded dark:text-gray-900`}>{year}</span>
+      <span className={`text-xs text-foreground ${yearColor} px-2 py-1 rounded dark:text-gray-900`}>{year}</span>
     </div>
   );
 };
@@ -407,49 +408,56 @@ const Resume: React.FC = () => {
       year: "2024",
       licenseNo: "TVETA/T258738",
       certColor: "text-emerald-500",
-      yearColor: "bg-emerald-100"
+      yearColor: "bg-emerald-100",
+      bgGradient: "bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-green-500/10"
     },
     {
       title: "Front-End Web Pro-Development",
       issuer: "ALX Africa - In Progress",
       year: "Oct 2025",
       certColor: "text-blue-500",
-      yearColor: "bg-blue-100"
+      yearColor: "bg-blue-100",
+      bgGradient: "bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-violet-500/10"
     },
     {
       title: "Professional Foundations",
       issuer: "ALX Africa - Completed",
       year: "Jun 2025",
       certColor: "text-purple-500",
-      yearColor: "bg-purple-100"
+      yearColor: "bg-purple-100",
+      bgGradient: "bg-gradient-to-br from-purple-500/10 via-fuchsia-500/10 to-pink-500/10"
     },
     {
       title: "Cisco Certified Network Associate (CCNA)",
       issuer: "Cisco Networking Academy",
       year: "2021",
       certColor: "text-orange-500",
-      yearColor: "bg-orange-100"
+      yearColor: "bg-orange-100",
+      bgGradient: "bg-gradient-to-br from-orange-500/10 via-amber-500/10 to-yellow-500/10"
     },
     {
       title: "Understanding Open Educational Resources (OER)",
       issuer: "Commonwealth of Learning",
       year: "2024",
       certColor: "text-sky-500",
-      yearColor: "bg-sky-100"
+      yearColor: "bg-sky-100",
+      bgGradient: "bg-gradient-to-br from-sky-500/10 via-cyan-500/10 to-teal-500/10"
     },
     {
       title: "Quality Assurance of Blended & Online Learning",
       issuer: "Commonwealth of Learning",
       year: "2023",
       certColor: "text-indigo-500",
-      yearColor: "bg-indigo-100"
+      yearColor: "bg-indigo-100",
+      bgGradient: "bg-gradient-to-br from-indigo-500/10 via-violet-500/10 to-purple-500/10"
     },
     {
       title: "Universal Design For Learning (UDL)",
       issuer: "Commonwealth of Learning",
       year: "2024",
       certColor: "text-violet-500",
-      yearColor: "bg-violet-100"
+      yearColor: "bg-violet-100",
+      bgGradient: "bg-gradient-to-br from-violet-500/10 via-fuchsia-500/10 to-pink-500/10"
     }
   ];
 
