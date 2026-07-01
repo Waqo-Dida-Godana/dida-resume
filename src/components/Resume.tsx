@@ -629,20 +629,50 @@ const Resume: React.FC = () => {
           </div>
 
           {/* TVETA License Banner */}
-          <div className="mt-8 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 text-center">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <BadgeCheck className="w-6 h-6 text-emerald-600" />
-              <h4 className="text-lg font-bold text-emerald-800">TVETA Licensed Trainer</h4>
+          <div className="mt-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 border border-emerald-200/50">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <BadgeCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-700" />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-bold text-emerald-800 dark:text-emerald-900 mb-1">TVETA Licensed Trainer</h4>
+                <p className="text-sm text-emerald-700 dark:text-emerald-800 mb-3">
+                  Registered and Licensed under Section 23 of the TVET Act, 2013
+                </p>
+                <div className="grid sm:grid-cols-2 gap-3 text-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span className="text-gray-900 dark:text-gray-900 font-medium">Name:</span>
+                    <span className="text-emerald-700 dark:text-emerald-800">WAKO GODANA</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span className="text-gray-900 dark:text-gray-900 font-medium">ID No:</span>
+                    <span className="text-emerald-700 dark:text-emerald-800">36492716</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span className="text-gray-900 dark:text-gray-900 font-medium">License No:</span>
+                    <span className="text-emerald-700 dark:text-emerald-800">TVETA/T258738</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span className="text-gray-900 dark:text-gray-900 font-medium">Specialization:</span>
+                    <span className="text-emerald-700 dark:text-emerald-800">IT Trainer</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span className="text-gray-900 dark:text-gray-900 font-medium">Category:</span>
+                    <span className="text-emerald-700 dark:text-emerald-800">Up to Level 6</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span className="text-gray-900 dark:text-gray-900 font-medium">KNQF Level:</span>
+                    <span className="text-emerald-700 dark:text-emerald-800">Level 6</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="text-emerald-700 text-sm mb-2">
-              <strong>Name:</strong> WAKO GODANA | <strong>ID No:</strong> 36492716 | <strong>License No:</strong> TVETA/T258738
-            </p>
-            <p className="text-emerald-600 text-xs">
-              Area of Specialization: Information Technology Trainer | Category: Up to Level 6 | KNQF Level 6
-            </p>
-            <p className="text-emerald-500 text-xs mt-2">
-              Registered and Licensed under Section 23 of the TVET Act, 2013
-            </p>
           </div>
 
           {/* ALX Program Banner */}
