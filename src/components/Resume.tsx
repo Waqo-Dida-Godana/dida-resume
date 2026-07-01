@@ -647,11 +647,6 @@ const Resume: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span className="text-gray-900 dark:text-gray-900 font-medium">ID No:</span>
-                    <span className="text-emerald-700 dark:text-emerald-800">36492716</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
                     <span className="text-gray-900 dark:text-gray-900 font-medium">License No:</span>
                     <span className="text-emerald-700 dark:text-emerald-800">TVETA/T258738</span>
                   </div>
