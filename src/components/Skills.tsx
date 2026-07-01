@@ -115,7 +115,7 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-surface">
+    <section id="skills" className="py-20 bg-surface lg:pl-[280px]">
       <div className="px-4 lg:pl-0 lg:pr-12">
         {/* Section Header */}
         <div className="text-center mb-16">
