@@ -12,7 +12,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, features, color, bgGradient }) => {
   return (
-    <div className={`${bgGradient} rounded-xl p-8 shadow-elegant border border-white/10 hover:shadow-glow transition-all duration-300 group`}>
+    <div className={`${bgGradient} rounded-xl p-8 shadow-elegant border border-white/10 hover:shadow-glow transition-all duration-300 group h-full flex flex-col`}>
       <div className="flex items-center gap-4 mb-6">
         <div className={`w-16 h-16 ${color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300`}>
           {icon}
